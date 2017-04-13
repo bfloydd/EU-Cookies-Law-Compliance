@@ -10,7 +10,7 @@ What this simple script is doing?
 * Loads external javascripts (supposed to use external/cross domains Cookies) on visitor's demand;
 * Keeps visitors cookies choice (for a limited time);
 * Integrates a counter timer and automatic loadingfor external javascripts after a delay;
-* Prepares a cup of coffee for you breakfast at the morning (washing-machine option planned for future versions).
+* Prepares a cup of coffee for your breakfast at the morning (washing-machine option planned for future versions).
 
 ## How to use it?
 
