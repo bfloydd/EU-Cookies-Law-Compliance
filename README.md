@@ -42,4 +42,4 @@ Check the [first script code line](https://github.com/cara-tm/EU-Cookies-Law-Com
 
 * `msg` (string): the message shown (into the `<div id="msg-cookies"></div>`) when a vistor refuses the use of Cookies (with translations support).
 * `future` (string or integer): delay (in months) to keep the visitor's choice. If the 'Cookie Choice' is accepted, nothing will be shown to the visitor for next visits; in the other hand, the `msg` variable content will be shown.
-* `minutes` (integer): delay (in minutes) for the automatic scripts launcher. If set to `0` the counter will not be shown. Note: the elapsed time appears until it finishes, after that all  messages will be hidden.
+* `minutes` (integer): delay (in minutes) for the automatic scripts launcher. If set to `0` the counter will not be shown. Note: the elapsed time appears until it finishes, after that the external scripts are loaded and all messages will be hidden.
