@@ -12,7 +12,7 @@ What this simple script is doing?
 * Integrates a counter timer and automatic loadingfor external javascripts after a delay;
 * Prepares a cup of coffee for you breakfast at the morning (washing-machine option planned for future versions).
 
-How to use it?
+## How to use it?
 
 Just put this HTML markup into your page(s):
 
@@ -32,7 +32,7 @@ And just before the last `</body>` tag place the EU Cookies Law Compliance scrip
 
 That's it!
 
-How to customize?
+## How to customize?
 
 Check the [first script code line](https://github.com/cara-tm/EU-Cookies-Law-Compliance/blob/master/EU_cookies_law.min.js#L2):
 
