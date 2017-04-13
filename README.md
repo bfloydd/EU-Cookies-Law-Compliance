@@ -3,7 +3,7 @@ A simple third part javascripts loader for the EU Cookies law with no dependenci
 
 What this simple script is doing?
 
-* Based on a simple HTML markup with full customization with parameters;
+* Based on a simple HTML markup with full customization and parameters;
 * Supports l10n and translations;
 * Checks the browser's language preference to detect visitors whos are members of the EU (otherwise no Cookies informations are shown);
 * Displays within your website a dual choice for Cookies acceptence or not;
