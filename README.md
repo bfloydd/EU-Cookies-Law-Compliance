@@ -19,7 +19,7 @@ Just put this HTML markup into your page(s):
     <div id="msg-cookies"></div>
 
 		<p id="cookie-choices">This website stores some third parts cookies within your device. You can <a href="#!" title="J'accepte de recevoir des Cookies" id="ok-cookies">Accept</a> or <a href="#!" title="Je refuse l'usage de Cookies" id="no-cookies">Refuse</a> them. 
-    <p id="cookies-delay">Time remaining before Cookies automatic launch: <span id="counter"></span></p>
+    <p id="cookies-delay">Time remaining before Cookies automatic launch: <span id="counter">1:00</span></p>
 
 And just before the last `</body>` tag place the EU Cookies Law Compliance script and set the external scripts into its array:
 
