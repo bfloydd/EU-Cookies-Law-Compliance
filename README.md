@@ -1,5 +1,5 @@
 # EU Cookies Law Compliance
-A simple third part javascripts loader for the EU Cookies law with no dependencies. 
+A simple third part javascripts loader for the EU Cookies law with no dependencies ([online demo](http://sandbox.cara-tm.com/clients/cookies-law/)).
 
 What this simple script is doing?
 
