@@ -1,5 +1,5 @@
 # EU Cookies Law Compliance
-A simple third part javascripts loader for the EU Cookies law with no dependencies ([online demo](http://sandbox.cara-tm.com/clients/cookies-law/)).
+A simple third part javascripts loader for the EU Cookies law with no dependencies ([online demo](http://eu-cookies-law.cara-tm.com/)).
 
 What this simple script is doing?
 
@@ -9,8 +9,8 @@ What this simple script is doing?
 * Displays within your website a dual choice for Cookies acceptence or not;
 * Loads external javascripts (supposed to use external/cross domains Cookies) on visitor's demand;
 * Keeps visitors cookies choice (for a limited time);
-* Integrates a counter timer and automatic loadingfor external javascripts after a delay;
-* Prepares a cup of coffee for your breakfast at the morning (washing-machine option planned for future versions).
+* Integrates a counter timer and automatic loading for external javascripts after a delay;
+* Prepares a cup of coffee for your morning breakfast (washing-machine option planned for future versions).
 
 ## How to use it?
 
