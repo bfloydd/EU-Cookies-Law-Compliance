@@ -37,8 +37,9 @@ That's it!
 Check the [first script code line](https://github.com/cara-tm/EU-Cookies-Law-Compliance/blob/master/EU_cookies_law.min.js#L2):
 
     var msg="Vous refusez les cookies tiers externes : aucun, à l'initiative de ce site, n'est présent sur votre appareil.",
-    future='1 Month',
-    minutes=1;
+    future='1 Mois',
+    minutes=1,
+    no_alowed_cookies="Votre navigateur est actuellement configuré pour interdire tous Cookies (veuillez vérifier ses paramètres).";
 
 * `msg` (string): the message shown (into the `<div id="msg-cookies"></div>`) when a vistor refuses the use of Cookies (with translations support).
 * `future` (string or integer): delay (in months) to keep the visitor's choice. If the 'Cookie Choice' is accepted, nothing will be shown to the visitor for next visits; in the other hand, the `msg` variable content will be shown.
