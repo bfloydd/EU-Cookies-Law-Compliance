@@ -1,5 +1,5 @@
 /*! Simple EU Cookies Law Compliance without dependencies by cara-tm.com, 2017. MIT license */
-(function EU_cookies_law (r)
+function EU_cookies_law (r)
 {
 
 	'use strict';
@@ -85,50 +85,49 @@
 			if ( !window.scriptHasRun ) {
 				window.scriptHasRun = true;
 
-			for (var i=0; i < el.length; i++) {
-				if (el[i] !== 0 || !window.scriptHasRun) {
-					window.scriptHasRun = true;
-					s[i] = document.createElement('script');
-					s[i].src = el[i];
-					document.getElementsByTagName('head')[0].appendChild(s[i]) || a.parentNode.insertBefore (s[i], a);
+				for (var i=0; i < el.length; i++) {
+					if (el[i] !== 0 || !window.scriptHasRun) {
+						window.scriptHasRun = true;
+						s[i] = document.createElement('script');
+						s[i].src = el[i];
+						document.getElementsByTagName('head')[0].appendChild(s[i]) || a.parentNode.insertBefore (s[i], a);
+					}
 				}
 			}
 		}
-	}
 
-	function tick () {
+		function tick () {
 
-		if( minutes !=0 && null !== document.getElementById('counter') ) {
-			var counter = document.getElementById('counter'),
-				current_minutes = mins-1;
-				seconds--;
+			if( minutes !=0 && null !== document.getElementById('counter') ) {
+				var counter = document.getElementById('counter'),
+					current_minutes = mins-1;
+					seconds--;
 
-			if (typeof counter.innerHTML !== null)
-				counter.innerHTML = current_minutes.toString() + ':' + (seconds < 10 ? '0' : '') + String(seconds);
+				if (typeof counter.innerHTML !== null)
+					counter.innerHTML = current_minutes.toString() + ':' + (seconds < 10 ? '0' : '') + String(seconds);
 
-			if (seconds > 0) {
-				setTimeout (tick, 1000);
-			} else {
-				if (mins > 1) {
-					countdown(mins - 1);
+				if (seconds > 0) {
+					setTimeout (tick, 1000);
+				} else {
+					if (mins > 1) {
+						countdown(mins - 1);
+					}
 				}
-			}
 
-			if (seconds == 0) {
-				launch();
-				sanitize_msg('');
-			}
+				if (seconds == 0) {
+					launch();
+					sanitize_msg('');
+				}
 
-		} else 
-			document.getElementById('cookies-delay').innerHTML = '';
+			} else 
+				document.getElementById('cookies-delay').innerHTML = '';
+		}
+
+	} else 
+		sanitize_msg(no_alowed_cookies);
+
+	function sanitize_msg (m) {
+		document.getElementById('cookies-delay').innerHTML = '';
+		return document.getElementById('cookie-choices').innerHTML = m;
 	}
-
-} else {
-	sanitize_msg(no_alowed_cookies);
-}
-
-function sanitize_msg (m) {
-	document.getElementById('cookies-delay').innerHTML = '';
-	return document.getElementById('cookie-choices').innerHTML = m;
-}
-})();
+};
