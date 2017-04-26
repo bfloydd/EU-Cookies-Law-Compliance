@@ -1,12 +1,18 @@
-/*! Simple EU Cookies Law Compliance without dependencies by cara-tm.com, 2017. MIT license */
+/**
+* Simple EU Cookies Law Compliance without dependencies by cara-tm.com, 2017. MIT license 
+*
+* @param array List of URLs
+*/
 function EU_cookies_law (r)
 {
 
 	'use strict';
+	// Custom preferences part
 	var msg = "You refuse external third-party cookies: none, at the initiative of this site, is present on your device.",
-		future = '1 Month',
-		minutes = 1,
-		no_alowed_cookies = "Currently, your browser is set to disable cookies (check preferences).";
+	 future = '1 Month',
+	minutes = 1,
+	no_alowed_cookies = "Currently, your browser is set to disable cookies (check preferences).";
+	// End custom part
 
 	var domain = window.location.hostname,
 		lang = (navigator.language || navigator.browserLanguage),
