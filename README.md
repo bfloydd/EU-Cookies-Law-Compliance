@@ -1,7 +1,7 @@
 # EU Cookies Law Compliance
 A simple third part javascripts loader for the EU Cookies law with no dependencies ([online demo](http://eu-cookies-law.cara-tm.com/)).
 
-What this simple script is doing?
+What is this simple script doing?
 
 * Based on a simple HTML markup with full customization and parameters;
 * Supports l10n and translations;
