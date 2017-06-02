@@ -23,45 +23,57 @@ function EU_cookies_law (r)
 		accept_cookies = document.getElementById('ok-cookies'),
 		refuse_cookies = document.getElementById('no-cookies');
 
+	// Cookies are allowed by the browser
 	if (false !== navigator.cookieEnabled) {
-
+		// Loop into the countries array
 		for (var i=0; i < countries.length; i++) {
-
+			// If the browser's country language code is found within the array
 			if ( countries[i] === lang.substring(0, 2).toUpperCase() ) {
 				affected !== 0;
 				break;
 			}
 		}
 
+		// Not an EU country member 
 		if (affected !== 1) {
+			// Remove all messages into the cookies warning
 			sanitize_msg('');
+			// Loads the ressources
 			jsloader(r);
 		} else 
 			check_cookies();
 
+		// Event handler for 'Accept Cookies' link
 		accept_cookies.onclick = function (evt) {
 			evt.preventDefault();
 			launch(evt);
 		};
-
+		// The js loader
 		function launch () {
-			future = Number( future.replace(/\D+$/, '') );
-
+			future = parseInt( future.substring(0,1) );
+			// Creates an internal cookie for next visits
 			var expires = new Date(new Date().setMonth( new Date().getMonth()+future) );
 			cookie_creation('Ok', expires);
+			// Loads external js
 			jsloader(r);
+			// Removes message warnings
 			sanitize_msg('');
 		};
 
+		// Envent handler for the 'Refuse Cookies' link
 		refuse_cookies.onclick = function (evt) {
 			evt.preventDefault();
+			// Creates an internal cookie for next visits
 			var tomorrow = new Date( new Date().setDate(new Date().getDate()+1) );
 
 			cookie_creation('No', tomorrow);
+			// Changes the message warning
 			sanitize_msg(msg);
+			// Current page refresh
 			window.location='';
 		};
 
+		// Get cookie
 		function getCookie (sName) {
 			var oRegex = new RegExp('(?:; )?' + sName + ' = ([^;]*);?');
 
@@ -71,20 +83,27 @@ function EU_cookies_law (r)
 				return null;
 		};
 
+		// Check current website cookie if exists
 		function check_cookies () {
+			// Launches the counter
 			tick();
 			if (getCookie(domain) === 'Ok' + domain) {
+				// A cookie exists for acceptence 
 				sanitize_msg('');
+				// Loads external js
 				jsloader(r);
 			} else if (getCookie(domain) === 'No' + domain) {
+				// Displays a message
 				sanitize_msg(msg);
 			}
 		};
 
+		// Cookies creation
 		function cookie_creation (c, e) {
 			return document.cookie = domain + '=' + encodeURIComponent(c + domain) + ';expires= ' + e.toGMTString();
 		}
 
+		// External js loader
 		function jsloader (el) {
 			var s = [],
 				a = document.getElementsByTagName('script')[0];
@@ -102,6 +121,7 @@ function EU_cookies_law (r)
 			}
 		}
 
+		// Counter creation
 		function tick () {
 
 			if( minutes !=0 && null !== document.getElementById('counter') ) {
@@ -130,8 +150,10 @@ function EU_cookies_law (r)
 		}
 
 	} else 
+		// Display a message for no cookies allowed by the browser
 		sanitize_msg(no_alowed_cookies);
 
+	// Messages loader
 	function sanitize_msg (m) {
 		document.getElementById('cookies-delay').innerHTML = '';
 		return document.getElementById('cookie-choices').innerHTML = m;
