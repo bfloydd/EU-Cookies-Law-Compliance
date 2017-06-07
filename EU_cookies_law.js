@@ -1,4 +1,4 @@
-/**
+/*!
 * Simple EU Cookies Law Compliance without dependencies by cara-tm.com, 2017. MIT license 
 *
 * @param array List of URLs
@@ -10,16 +10,23 @@ function EU_cookies_law (r)
 	// Custom preferences part
 	var msg = "You refuse external third-party cookies: none, at the initiative of this site, is present on your device.",
 	 future = '1 Month',
-	minutes = 1,
 	no_alowed_cookies = "Currently, your browser is set to disable cookies (check preferences).";
 	// End custom part
 
-	var domain = window.location.hostname,
+	// Other variables declaration
+	var domain = 
+	    	// Current host
+	    	window.location.hostname,
+	    	// The browser's language preference
 		lang = (navigator.language || navigator.browserLanguage),
+	    	// Array of 2 caracters country members of the EU
 		countries = ['AT','BE','BG','HR','CZ','CY','DK','EE','FI','FR','DE','EL','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','SK','SI','ES','SE','GB','UK'],
-		affected = 1,
+		// Current visitor is considered as a member of the EU by default
+	    	affected = 1,
+	    	// 1 minute delay for the information messages
 		seconds = 60,
-		mins = minutes,
+		minutes = 1,
+	    	// HTML links
 		accept_cookies = document.getElementById('ok-cookies'),
 		refuse_cookies = document.getElementById('no-cookies');
 
@@ -29,7 +36,9 @@ function EU_cookies_law (r)
 		for (var i=0; i < countries.length; i++) {
 			// If the browser's country language code is found within the array
 			if ( countries[i] === lang.substring(0, 2).toUpperCase() ) {
+				// Right: change the variable value
 				affected !== 0;
+				// Stops the loop
 				break;
 			}
 		}
@@ -41,6 +50,7 @@ function EU_cookies_law (r)
 			// Loads the ressources
 			jsloader(r);
 		} else 
+			// Verify if there is an existing choice for the current visitor
 			check_cookies();
 
 		// Event handler for 'Accept Cookies' link
@@ -50,9 +60,10 @@ function EU_cookies_law (r)
 		};
 		// The js loader
 		function launch () {
-			future = parseInt( future.substring(0,1) );
+			// Trims & converts the string variable to integer
+			future = parseInt( future.substring(0, 1) );
 			// Creates an internal cookie for next visits
-			var expires = new Date(new Date().setMonth( new Date().getMonth()+future) );
+			var expires = new Date( new Date().setMonth( new Date().getMonth() + future) );
 			cookie_creation('Ok', expires);
 			// Loads external js
 			jsloader(r);
@@ -64,7 +75,7 @@ function EU_cookies_law (r)
 		refuse_cookies.onclick = function (evt) {
 			evt.preventDefault();
 			// Creates an internal cookie for next visits
-			var tomorrow = new Date( new Date().setDate(new Date().getDate()+1) );
+			var tomorrow = new Date( new Date().setDate(new Date().getDate() + 1) );
 
 			cookie_creation('No', tomorrow);
 			// Changes the message warning
@@ -73,7 +84,7 @@ function EU_cookies_law (r)
 			window.location='';
 		};
 
-		// Get cookie
+		// Gets a cookie
 		function getCookie (sName) {
 			var oRegex = new RegExp('(?:; )?' + sName + ' = ([^;]*);?');
 
@@ -105,11 +116,12 @@ function EU_cookies_law (r)
 
 		// External js loader
 		function jsloader (el) {
+			// Arrays
 			var s = [],
-				a = document.getElementsByTagName('script')[0];
+			a = document.getElementsByTagName('script')[0];
+			// Loop for scripts to launch
 			if ( !window.scriptHasRun ) {
 				window.scriptHasRun = true;
-
 				for (var i=0; i < el.length; i++) {
 					if (el[i] !== 0 || !window.scriptHasRun) {
 						window.scriptHasRun = true;
@@ -124,9 +136,9 @@ function EU_cookies_law (r)
 		// Counter creation
 		function tick () {
 
-			if( minutes !=0 && null !== document.getElementById('counter') ) {
+			if( minutes != 0 && null !== document.getElementById('counter') ) {
 				var counter = document.getElementById('counter'),
-					current_minutes = mins-1;
+					current_minutes = minutes - 1;
 					seconds--;
 
 				if (typeof counter.innerHTML !== null)
@@ -135,8 +147,8 @@ function EU_cookies_law (r)
 				if (seconds > 0) {
 					setTimeout (tick, 1000);
 				} else {
-					if (mins > 1) {
-						countdown(mins - 1);
+					if (minutes > 1) {
+						countdown(minute - 1);
 					}
 				}
 
@@ -146,6 +158,7 @@ function EU_cookies_law (r)
 				}
 
 			} else 
+				// Removes the numbers into the 'cookies-delay'
 				document.getElementById('cookies-delay').innerHTML = '';
 		}
 
@@ -155,7 +168,9 @@ function EU_cookies_law (r)
 
 	// Messages loader
 	function sanitize_msg (m) {
+		// Removes the content into 'cookies-delay'
 		document.getElementById('cookies-delay').innerHTML = '';
+		// And replaces it by the 'm' parameter
 		return document.getElementById('cookie-choices').innerHTML = m;
 	}
 };
