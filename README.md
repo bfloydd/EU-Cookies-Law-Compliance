@@ -1,6 +1,8 @@
 # EU Cookies Law Compliance
 A simple third part javascripts loader for the EU Cookies law with no dependencies ([online demo](http://eu-cookies-law.cara-tm.com/)).
 
+[Textpattern CMS plugin version available here](https://github.com/cara-tm/pat_eu_cookies_law).
+
 What is this simple script doing?
 
 * Based on a simple HTML markup with full customization and parameters;
